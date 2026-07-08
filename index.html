@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahak — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===== NAV ===== -->
+  <header class="topbar">
+    <span class="topbar__mark">MK/</span>
+    <div class="topbar__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="i i--sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <svg class="i i--moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="topbar__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="index-nav" id="indexNav" aria-label="Section index">
+    <div class="index-nav__mark">MK/</div>
+    <ol class="index-nav__list" id="indexNavList">
+      <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
+      <li><a href="#about" class="is-active" data-label="ABOUT">About</a></li>
+      <li><a href="#experience" data-label="EXPERIENCE">Experience</a></li>
+      <li><a href="#projects" data-label="PROJECTS">Projects</a></li>
+      <li><a href="#skills" data-label="SKILLS">Skills</a></li>
+      <li><a href="#coding" data-label="CODING">Coding Profiles</a></li>
+      <li><a href="#certs" data-label="CERTS">Certifications</a></li>
+      <li><a href="#contact" data-label="CONTACT">Contact</a></li>
+    </ol>
+    <a class="nav-resume-btn" href="https://drive.google.com/file/d/18m3dI7G2o7bb1aC_DtlzAAlCI2qOrCd1/view?usp=sharing" target="_blank" rel="noopener">
+      <svg class="i" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+      Resume
+    </a>
+    <button class="theme-toggle theme-toggle--desktop" id="themeToggleDesktop" aria-label="Toggle dark mode">
+      <svg class="i i--sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+      <svg class="i i--moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      <span class="theme-toggle__label">Dark mode</span>
+    </button>
+    <div class="index-nav__foot">Jaipur, Rajasthan<br>IST · GMT+5:30</div>
+  </nav>
+
+  <main class="sheet">
+
+    <!-- ===== ABOUT / HERO ===== -->
+    <section id="about" class="section section--hero">
+      <div class="blob blob--1" aria-hidden="true"></div>
+      <div class="blob blob--2" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio</p>
+          <h1 class="display">
+            Mahak Kanwar<span class="display__accent">.</span>
+          </h1>
+          <p class="role">
+            B.Tech, Information Technology — SKIT Jaipur<br>
+            <span class="typewriter"><span id="typewriterText"></span><span class="typewriter__cursor">|</span></span>
+          </p>
+          <p class="lede">
+            I work at the intersection of data and decisions — building machine learning
+            models, wrangling messy datasets into something useful, and occasionally
+            losing an evening to a good algorithmic problem. Currently a ML Intern
+            at <strong>True Value Infosoft pvt Ltd</strong>, working on projects.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn--primary" href="https://drive.google.com/file/d/18m3dI7G2o7bb1aC_DtlzAAlCI2qOrCd1/view?usp=sharing" target="_blank" rel="noopener">
+              <svg class="i" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+              View Resume
+            </a>
+            <a class="btn btn--ghost" href="#contact">Get in touch →</a>
+          </div>
+
+          <div class="readout">
+            <div class="readout__cell">
+              <span class="readout__value">9.31</span>
+              <span class="readout__label">CGPA</span>
+            </div>
+            <div class="readout__cell">
+              <span class="readout__value"><span class="counter" data-target="2">0</span>+</span>
+              <span class="readout__label">internships</span>
+            </div>
+            <div class="readout__cell">
+              <span class="readout__value"><span class="counter" data-target="8">0</span>+</span>
+              <span class="readout__label">projects</span>
+            </div>
+            <div class="readout__cell">
+              <span class="readout__value">CP</span>
+              <span class="readout__label">Java · DSA</span>
+            </div>
+          </div>
+
+          <ul class="contact-row">
+            <li><svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Jaipur, Rajasthan</li>
+           <li><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5 12 13 21 6.5"/></svg> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mahakk452@gmail.com" target="_blank" rel="noopener">mahakk452@gmail.com</a></li>
+            <li><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7.2v.01M12 17v-4.5c0-1.4 1-2.5 2.3-2.5S17 11.1 17 12.5V17"/></svg> <a href="https://www.linkedin.com/in/mahak-kanwar-72714729b/">LinkedIn</a></li>
+            <li><svg class="i" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.35 4.68-4.58 4.93.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg> <a href="https://github.com/mahakkanwar0-spec">GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="hero-badge">
+          <div class="badge">
+            <div class="badge__clip"></div>
+            <div class="badge__card">
+              <img src="images/profile.png" alt="Mahak Kanwar" class="badge__photo">
+              <p class="badge__name">MAHAK Kanwar</p>
+              <p class="badge__role">AI/ML &amp; DATA · SKIT JAIPUR</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section">
+      <p class="eyebrow">02 — Timeline</p>
+      <h2 class="h2">Experience</h2>
+
+      <ol class="timeline">
+
+        <li class="timeline__item">
+          <div class="timeline__date">May 2026 — July 2026</div>
+          <div class="timeline__card">
+            <h3>Machine Learning Intern</h3>
+            <p class="timeline__org">True Value Infosoft pvt Ltd · Hybrid</p>
+            <ul>
+             <li>Developed AI-powered applications using Python, FastAPI, Streamlit, and Machine Learning.</li>
+              <li>Built and evaluated predictive models while analyzing real-world datasets for performance improvement.</li>
+              <li>Created interactive dashboard and REST APIs to visualize insights and support data-driven decisions.</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Python</span>
+              <span class="chip">ML</span>
+              <span class="chip">Rest API</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="timeline__item">
+          <div class="timeline__date">April 2026 — May 2026</div>
+          <div class="timeline__card">
+            <h3>AI &amp; Data Analyst Intern</h3>
+            <p class="timeline__org">XYlofy AI · Remote</p>
+            <ul>
+              <li>Worked on project-based AI and data analysis assignments.</li>
+              <li>Build and evaluating ML models on real-world style datasets.</li>
+              <li>Generated data insights through visualization techniques,</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Python</span>
+              <span class="chip">ML</span>
+              <span class="chip">Data Analysis</span>
+            </div>
+          </div>
+        </li>
+
+           <li class="timeline__item">
+          <div class="timeline__date">June 2025 — july 2025</div>
+          <div class="timeline__card">
+            <h3>Java Developer Intern</h3>
+            <p class="timeline__org">SKIT · On Site</p>
+            <ul>
+              <li>Built and integrated RESTful APIs using Spring Boot.</li>
+              <li>Designed Angular components that reduced page load time.</li>
+              <li>Collaborated with team members to streamline development workflows.</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Java</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Angular</span>
+            </div>
+          </div>
+        </li>
+
+      <li class="timeline__item">
+          <div class="timeline__date">July 2024 — July 2024</div>
+          <div class="timeline__card">
+            <h3>Web Developer Intern</h3>
+            <p class="timeline__org">SKIT · On Site</p>
+            <ul>
+              <li>Designed responsive web pages.</li>
+              <li>Improved front-end performance and user experience.</li>
+              <li>optimized HTML, CSS, and JavaScript implementations.</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">HTML</span>
+              <span class="chip"> CSS</span>
+              <span class="chip">JS</span>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- <li class="timeline__item">
+          <div class="timeline__date">[Mon 20XX] — [Mon 20XX]</div>
+          <div class="timeline__card">
+            <h3>[Prior role / competitive programming milestone]</h3>
+            <p class="timeline__org">[Organization or context]</p>
+            <ul>
+              <li>Solved algorithmic problems in Java across greedy, DP, binary search
+                and graph topics on timed assessment platforms.</li>
+              <li>[Add another line — e.g. a contest rank, streak, or specific problem class you focused on.]</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Java</span>
+              <span class="chip">DSA</span>
+              <span class="chip">Competitive Programming</span>
+            </div>
+          </div>
+        </li> -->
+      </ol>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+   <section id="projects" class="section">
+      <p class="eyebrow">03 — Selected Work</p>
+      <h2 class="h2">Projects</h2>
+
+      <div class="project-grid">
+        <article class="project-card" style="--proj-color:#3D5AFE">
+          <div class="project-card__shot">
+            <img src="images/fraud-detection.png" alt="Fraud Detection System screenshot">
+          </div>
+          <p class="project-card__index">01</p>
+          <h3>Fraud Detection System</h3>
+          <p>A machine learning pipeline to flag anomalous transactions, built
+            around gradient-boosted models with an emphasis on explainability.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Python</span>
+            <span class="chip chip--mono">Scikit-learn</span>
+            <span class="chip chip--mono">XGBoost</span>
+            <span class="chip chip--mono">LightGBM</span>
+            <span class="chip chip--mono">SHAP</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/FraudDetection_Mahak_Kanwar" target="_blank" rel="noopener">GitHub →</a>
+            <a class="project-card__link project-card__link--demo" href="https://frauddetectionmahakkanwar-puenpugvfjdt4dumuwtckw.streamlit.app/" target="_blank" rel="noopener">Live Demo →</a>
+          </div>
+        </article>
+
+         <article class="project-card" style="--proj-color:#00B894">
+          <div class="project-card__shot">
+            <img src="images/learningBuddy.png" alt="AI Learning Buddy screenshot">
+          </div>
+          <p class="project-card__index">02</p>
+          <h3>AI Learning Buddy</h3>
+          <p>AI-powered learning assistant built using Google Gemini
+            that explains concepts, provides real-life examples,
+            generates quizzes, and answers questions interactively.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Python</span>
+            <span class="chip chip--mono">Streamlit</span>
+            <span class="chip chip--mono">Gemini API</span>
+            <span class="chip chip--mono">Prompt Engineering</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/AI-Learning-Buddy" target="_blank" rel="noopener">GitHub →</a>
+            <a class="project-card__link project-card__link--demo" href="https://ai-learning-buddy-zhiqfbucjmc5xgjjtezwwa.streamlit.app/" target="_blank" rel="noopener">Live Demo →</a>
+          </div>
+        </article>
+    
+
+        <article class="project-card" style="--proj-color:#C97F1E">
+          <div class="project-card__shot">
+            <img src="images/jaipurPolo.png" alt="Jaipur Polo Website screenshot">
+          </div>
+          <p class="project-card__index">03</p>
+          <h3>Jaipur Polo Website</h3>
+          <p>A responsive website developed for Jaipur Polo Club featuring
+            riding academies, gallery, subscription, contact pages and
+            an elegant user experience across all devices.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">HTML5</span>
+            <span class="chip chip--mono">CSS3</span>
+            <span class="chip chip--mono">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/jaipur-polo-website" target="_blank" rel="noopener">GitHub →</a>
+            <a class="project-card__link project-card__link--demo" href="https://jaipur-polo.vercel.app" target="_blank" rel="noopener">Live Demo →</a>
+          </div>
+        </article>
+
+        <article class="project-card" style="--proj-color:#0099CC">
+          <div class="project-card__shot">
+            <img src="images/motorolaDashboard.png" alt="Motorola Sales Dashboard screenshot">
+          </div>
+          <p class="project-card__index">04</p>
+          <h3>Motorola Sales Dashboard</h3>
+          <p>Interactive Power BI dashboard providing business insights
+            into mobile sales, customer ratings, payment methods,
+            city-wise performance, and monthly sales trends.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Power BI</span>
+            <span class="chip chip--mono">DAX</span>
+            <span class="chip chip--mono">Power Query</span>
+            <span class="chip chip--mono">Excel</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/sales-dashboard" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card" style="--proj-color:#E2533D">
+          <div class="project-card__shot">
+            <img src="images/analyzer.png" alt="AI Resume Analyzer screenshot">
+          </div>
+          <p class="project-card__index">05</p>
+          <h3>AI Resume Analyzer</h3>
+          <p>Parses resumes and gives structured, model-generated feedback against
+            a target job description.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Flask</span>
+            <span class="chip chip--mono">OpenAI API</span>
+            <span class="chip chip--mono">SQLAlchemy</span>
+            <span class="chip chip--mono">PyPDF2</span>
+            <span class="chip chip--mono">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/AI-Resume-Analyzer" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+           <article class="project-card" style="--proj-color:#2E8B57">
+          <div class="project-card__shot">
+            <img src="images/campusEase.png" alt="CampusEase screenshot">
+          </div>
+          <p class="project-card__index">06</p>
+          <h3>CampusEase</h3>
+          <p>A full-stack complaint management platform with secure authentication
+            and a responsive front end.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Spring Boot</span>
+            <span class="chip chip--mono">Angular</span>
+            <span class="chip chip--mono">MongoDB</span>
+            <span class="chip chip--mono">JWT</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/campusease" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card" style="--proj-color:#6C63FF">
+          <div class="project-card__shot">
+            <img src="images/churn.png" alt="Customer Churn Prediction screenshot">
+          </div>
+          <p class="project-card__index">07</p>
+          <h3>Customer Churn Prediction</h3>
+          <p>Machine learning application that predicts customer churn using
+            classification algorithms, helping businesses identify customers
+            likely to leave and improve retention strategies.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Python</span>
+            <span class="chip chip--mono">Pandas</span>
+            <span class="chip chip--mono">Scikit-Learn</span>
+            <span class="chip chip--mono">Random Forest</span>
+            <span class="chip chip--mono">Streamlit</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/customer-churn-prediction" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card" style="--proj-color:#E94E77">
+          <div class="project-card__shot">
+            <img src="images/sentiment.png" alt="Sentiment Analysis screenshot">
+          </div>
+          <p class="project-card__index">08</p>
+          <h3>Sentiment Analysis</h3>
+          <p>AI-powered sentiment analysis system that classifies customer
+            reviews into Positive, Neutral, and Negative categories using
+            Natural Language Processing techniques.</p>
+          <div class="chip-row">
+            <span class="chip chip--mono">Python</span>
+            <span class="chip chip--mono">NLP</span>
+            <span class="chip chip--mono">TextBlob</span>
+            <span class="chip chip--mono">Scikit-Learn</span>
+            <span class="chip chip--mono">Streamlit</span>
+          </div>
+          <div class="project-links">
+            <a class="project-card__link" href="https://github.com/mahakkanwar0-spec/sentiment-analysis" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section">
+      <p class="eyebrow">04 — Toolset</p>
+      <h2 class="h2">Skills</h2>
+
+      <div class="skill-grid">
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">Java</span>
+            <span class="chip">SQL</span>
+            <span class="chip">C++</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>ML &amp; Data analysis</h4>
+          <div class="chip-row">
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">MS Excel</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Backend</h4>
+          <div class="chip-row">
+            <span class="chip">FastAPI</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">JWT</span>
+            <span class="chip">RestAPI</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Frontend</h4>
+          <div class="chip-row">
+            <span class="chip">Streamlit</span>
+            <span class="chip">Angular</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Databases</h4>
+          <div class="chip-row">
+            <span class="chip">MySQL</span>
+            <span class="chip">DB2</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <div class="chip-row">
+            <span class="chip">VS code</span>
+            <span class="chip">Git Hub</span>
+            <span class="chip">Git</span>
+            <span class="chip">Postman</span>
+            <span class="chip">Jupyter Notebook</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CODING PROFILES ===== -->
+    <section id="coding" class="section">
+      <p class="eyebrow">05 — Practice Log</p>
+      <h2 class="h2">Coding Profiles</h2>
+
+      <div class="coding-grid">
+        <a class="coding-card" href="https://codolio.com/profile/mahi1208" target="_blank" rel="noopener">
+          <p class="coding-card__platform">Codolio</p>
+          <p class="coding-card__stat"><span class="counter" data-target="600">0</span>+</span></p>
+          <p class="coding-card__label">problems solved</p>
+        </a>
+        <a class="coding-card" href="https://www.codechef.com/users/open_wolves_52" target="_blank" rel="noopener">
+          <p class="coding-card__platform">Codechef</p>
+          <p class="coding-card__stat">1240</p>
+          <p class="coding-card__label">current rating</p>
+        </a>
+        <a class="coding-card" href="https://github.com/mahakkanwar0-spec" target="_blank" rel="noopener">
+          <p class="coding-card__platform">GitHub</p>
+          <p class="coding-card__stat"><span class="counter" data-target="10">0</span>+</span></p>
+          <p class="coding-card__label">public repositories</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certs" class="section">
+      <p class="eyebrow">06 — Credentials</p>
+      <h2 class="h2">Certifications</h2>
+
+       <div class="ticket-grid">
+        <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">SkillCourse</p>
+            <h4>30 days Power BI Micro Course</h4>
+            <p class="ticket__meta">Issued June 2026</p>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">Databricks</p>
+            <h4>Get Started With Databricks For Generative AI</h4>
+            <p class="ticket__meta">Issued October 2025</p>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket__body">
+             <p class="ticket__issuer">IBM SkillsBuild</p>
+            <h4>Machine Learning for Data Science Projects</h4>
+            <p class="ticket__meta">Issued March 2026</p>
+          </div>
+        </div>
+     <div class="ticket">
+          <div class="ticket__body">
+             <p class="ticket__issuer">Oracle</p>
+            <h4>Oracle OCI AI Foundations</h4>
+            <p class="ticket__meta">Issued October 2025</p>
+          </div>
+        </div>
+      <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">Cloud Foundations</p>
+            <h4>AWS Academy Graduate</h4>
+            <p class="ticket__meta">Issued April 2026</p>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">SimpliLearn</p>
+            <h4>Spring AI Basics</h4>
+            <p class="ticket__meta">Issued March 2026</p>
+          </div>
+        </div>
+        <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">Ducat India</p>
+            <h4>Java Integrated With AI</h4>
+            <p class="ticket__meta">Issued September 2025</p>
+          </div>
+        </div>
+         <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">Red Hat</p>
+            <h4>Red Hat Linux Fundamentals</h4>
+            <p class="ticket__meta">Issued April 2025</p>
+          </div>
+        </div>
+         <div class="ticket">
+          <div class="ticket__body">
+            <p class="ticket__issuer">IBM SkillsBuild</p>
+            <h4>AI Fundamentals</h4>
+            <p class="ticket__meta">Issued March 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section section--contact">
+      <p class="eyebrow">07 — Get in touch</p>
+      <h2 class="h2 h2--contact">Looking<br>Beyond Code<span class="display__accent">.</span></h2>
+      <p class="lede">Open to internships, full-time opportunities, and AI/ML or Data Analytics roles.</p>
+
+      <a class="btn btn--primary" href="https://drive.google.com/file/d/18m3dI7G2o7bb1aC_DtlzAAlCI2qOrCd1/view?usp=sharing" target="_blank" rel="noopener" style="margin-bottom:36px;">
+        <svg class="i" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+        Download Resume
+      </a>
+
+      <ul class="contact-row contact-row--large">
+        <li><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5 12 13 21 6.5"/></svg> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mahakk452@gmail.com" target="_blank" rel="noopener">mahakk452@gmail.com</a></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg> +91 8890392926</li>
+        <li><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7.2v.01M12 17v-4.5c0-1.4 1-2.5 2.3-2.5S17 11.1 17 12.5V17"/></svg> <a href="https://www.linkedin.com/in/mahak-kanwar-72714729b/]">LinkedIn</a></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.35 4.68-4.58 4.93.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg> <a href="https://github.com/mahakkanwar0-spec">GitHub</a></li>
+      </ul>
+
+      <footer class="foot">feel free to reach out to me · Mahak Kanwar · Jaipur, Rajasthan</footer>
+    </section>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
